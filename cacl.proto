@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package CalcPackage;
+
+service Calc {
+
+    rpc Plus(input) returns (result);
+    rpc Minus( num1, num2) returns (result);
+    rpc Multiply( num1, num2) returns (result);
+    rpc Divide( num1, num2) returns (result);
+}
+
+message input {
+    int num1 = 1;
+    int num2 = 1;
+}
+
+message result {
+    int result = 1;
+}
