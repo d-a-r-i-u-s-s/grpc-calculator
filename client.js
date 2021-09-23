@@ -21,7 +21,6 @@ document.getElementById("calculate").onclick = function func(){
 
     switch (SignField.value) {
         case '+':
-        // rpc Plus(+NumberFieldOne.value, +NumberFieldTwo.value) returns (result) {}  
             result = client.Plus({
                 "num1": +NumberFieldOne.value,
                 "num2": +NumberFieldTwo.value
@@ -31,13 +30,31 @@ document.getElementById("calculate").onclick = function func(){
             });
             break;
         case '-':
-            result = +NumberFieldOne.value - +NumberFieldTwo.value;
+            result = client.Minus({
+                "num1": +NumberFieldOne.value,
+                "num2": +NumberFieldTwo.value
+            }, (err, response) => {
+            
+                console.log("Recieved from server " + JSON.stringify(response))
+            });
             break;
         case '*':
-            result = +NumberFieldOne.value * +NumberFieldTwo.value;
+            result = client.Mulpitly({
+                "num1": +NumberFieldOne.value,
+                "num2": +NumberFieldTwo.value
+            }, (err, response) => {
+            
+                console.log("Recieved from server " + JSON.stringify(response))
+            });
             break;
         case '/':
-            result = +NumberFieldOne.value / +NumberFieldTwo.value;
+            result = client.Divide({
+                "num1": +NumberFieldOne.value,
+                "num2": +NumberFieldTwo.value
+            }, (err, response) => {
+            
+                console.log("Recieved from server " + JSON.stringify(response))
+            });
             break;
         }
 
