@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package CalcPackage;
+
+service Calc {
+
+    rpc Plus(figures) returns (result);
+    rpc Minus(figures) returns (result);
+    rpc Multiply(figures) returns (result);
+    rpc Divide(figures) returns (result);
+
+}
+
+message figures {
+    int32 num1 = 1;
+    int32 num2 = 2;
+}
+
+message result {
+    int32 result = 1;
+}
